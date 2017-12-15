@@ -13,7 +13,7 @@ class RabbitMQConnection extends Connection {
     }
 
     start(startCallback) {
-        amqp.connect(this.config.rabbitmqEndpoint, (err, conn) => {
+        amqp.connect(this.config.endpoint, (err, conn) => {
             if (err) return startCallback(err);
 
             conn.createChannel((err, ch) => {
