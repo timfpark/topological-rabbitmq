@@ -34,7 +34,7 @@ class RabbitMQConnection extends Connection {
     }
 
     enqueue(messages, enqueueCallback) {
-        console.log(`${this.id}: enqueuing ${JSON.stringify(messages)}`);
+        //console.log(`${this.id}: enqueuing ${JSON.stringify(messages)}`);
 
         async.each(messages, (message, messageCallback) => {
             let messageBuffer = new Buffer(
