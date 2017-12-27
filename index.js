@@ -51,6 +51,8 @@ class RabbitMQConnection extends Connection {
             message.body = JSON.parse(message.content.toString());
             console.log(`${this.id}: dequeued ${JSON.stringify(message.body)}`);
             return dequeueCallback(null, message);
+        }, {
+            noAck: false
         });
     }
 
