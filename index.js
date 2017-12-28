@@ -29,8 +29,8 @@ class RabbitMQConnection extends Connection {
     }
 
     complete(message, completeCallback) {
-        console.log('acking message: ' + JSON.stringify(message));
-        this.channel.ack(message);
+        //console.log('acking message: ' + JSON.stringify(message));
+        //this.channel.ack(message);
         if (completeCallback) return completeCallback();
     }
 
@@ -53,7 +53,7 @@ class RabbitMQConnection extends Connection {
             console.log(`${this.id}: dequeued ${JSON.stringify(message.body)}`);
             return dequeueCallback(null, message);
         }, {
-            noAck: false
+            noAck: true 
         });
     }
 
