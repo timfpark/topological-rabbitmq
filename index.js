@@ -29,6 +29,7 @@ class RabbitMQConnection extends Connection {
     }
 
     complete(message, completeCallback) {
+        console.log('acking message: ' + JSON.stringify(message));
         this.channel.ack(message);
         if (completeCallback) return completeCallback();
     }
